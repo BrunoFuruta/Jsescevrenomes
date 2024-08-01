@@ -1,0 +1,51 @@
+let palavra;
+
+function setup() {
+  createCanvas(1000, 1000);
+
+  palavra = palavraAleatoria();
+  
+}
+
+function palavraAleatoria() {
+  
+  let palavras = ["Bella gloria!", "Vorwärts Kameraden!", "This one's for king George!"];
+  
+  return random(palavras);
+}
+
+function inicializaCores() {
+  
+  background("white");
+  fill("black");
+  textSize(64);
+  textAlign(CENTER, CENTER);
+}
+
+function draw() {
+
+  inicializaCores();
+
+  let maximo = width;
+  let minimo = 0;
+  // mouseX, 0, width ==> 0, palavra.length
+  
+  let quantidade = map(mouseX, 0, width, 1, palavra.length);
+  //console.log(quantidade);
+  let parcial = palavra.substring(0, quantidade);
+  text(parcial, 400, 400);
+  
+}
+
+function modoNoturno(horario) {
+  if (horario > 18) {
+    console.log("Você precisa ligar o modo escuro!");
+  } else {
+    console.log("Modo noturno não é necessário neste momento.");
+  }
+}
+
+modoNoturno(15);
+modoNoturno(20);
+
+//Esse projeto eu copei o do final por que o meu estava errado quando cheguei no final, e esse escritas são do jogo chamado Napoleonic "Wars Roblox" é um jogo da guerra napoleonica, e esses são guerra de grito.
